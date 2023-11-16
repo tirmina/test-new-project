@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Toolkit</title>
+</head>
+<body>
+    <h1>Video Toolkit</h1>
+    <form action="/process" method="post">
+        <label for="video_url">Video URL:</label>
+        <input type="text" id="video_url" name="video_url" placeholder="Enter video URL" required><br><br>
+        
+        <label for="quality">Video Quality:</label>
+        <select id="quality" name="quality">
+            <option value="1080">1080p</option>
+            <option value="720">720p</option>
+            <!-- Include other quality options -->
+        </select><br><br>
+        
+        <label for="start_time">Start Time:</label>
+        <input type="text" id="start_time" name="start_time" placeholder="00:00:00"><br><br>
+        
+        <label for="end_time">End Time:</label>
+        <input type="text" id="end_time" name="end_time" placeholder="00:00:00"><br><br>
+        
+        <input type="submit" name="action" value="Download Video">
+        <input type="submit" name="action" value="Convert to Audio">
+        <!-- Include other functionalities like thumbnail download -->
+    </form>
+</body>
+</html>
