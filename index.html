@@ -8,31 +8,38 @@
     <h1>Video Toolkit</h1>
 
     <form action="/process" method="post">
-        <label for="video_url">Video URL:</label>
-        <input type="text" id="video_url" name="video_url" placeholder="Enter video URL" required><br><br>
-        
-        <label for="quality">Video Quality:</label>
-        <select id="quality" name="quality">
-            <option value="1080">1080p</option>
-            <option value="720">720p</option>
-            <!-- Include other quality options -->
-        </select><br><br>
-        
-        <label for="start_time">Start Time:</label>
-        <input type="text" id="start_time" name="start_time" placeholder="00:00:00"><br><br>
-        
-        <label for="end_time">End Time:</label>
-        <input type="text" id="end_time" name="end_time" placeholder="00:00:00"><br><br>
-        
-        <input type="submit" name="action" value="Download Video">
-        <input type="submit" name="action" value="Convert to Audio">
-        <!-- Include other functionalities like thumbnail download -->
-<form action="/download_thumbnail" method="post">
-    <label for="video_url">Enter YouTube Video URL:</label><br>
-    <input type="text" id="video_url" name="video_url" required><br><br>
-    <input type="submit" value="Download Thumbnail">
-</form>
-
+        <label for="video_url">Enter YouTube Video URL:</label><br>
+        <input type="text" id="video_url" name="video_url" required><br><br>
+        <input type="submit" value="Enter">
     </form>
+
+    <!-- This div will appear after entering the video URL -->
+    <div id="options" style="display: none;">
+        <h2>Choose an Action</h2>
+        <form action="/process" method="post">
+            <input type="hidden" id="video_url_hidden" name="video_url_hidden">
+            <input type="submit" name="action" value="Download Video">
+            <input type="submit" name="action" value="Convert to Audio">
+        </form>
+
+        <form action="/download_thumbnail" method="post">
+            <input type="hidden" id="video_url_thumbnail" name="video_url_thumbnail">
+            <input type="submit" value="Download Thumbnail">
+        </form>
+    </div>
+
+    <div id="result" style="display: none;">
+        <!-- Display the result here -->
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('options').style.display = 'block';
+            const videoURL = document.getElementById('video_url').value;
+            document.getElementById('video_url_hidden').value = videoURL;
+            document.getElementById('video_url_thumbnail').value = videoURL;
+        });
+    </script>
 </body>
 </html>
