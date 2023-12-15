@@ -34,3 +34,15 @@ def download_thumbnail():
 
     
     # Include handling for other functionalities like thumbnail download
+
+
+import os
+
+# Access the API key from the environment variable
+api_key = os.environ.get('YOUTUBE_API_KEY')
+
+# Use the API key in your function
+def your_function():
+    # Your code using the API key here
+    pass
+
